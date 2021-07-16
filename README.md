@@ -1,8 +1,6 @@
-# Instructions
+## Success on dotnet build
 
-## Success on dotnet build:
-
-Build and run commands:
+Run these commands to build a non-published Release build:
 ```
 dotnet build -c Release -f net5.0-windows --no-incremental
 dotnet "bin\Release\net5.0-windows\win7-x64\net5trimerror.dll"
@@ -21,7 +19,7 @@ NVIDIA GeForce GTX 960
 
 ## Error on dotnet publish with -p:PublishTrimmed=true
 
-Build and run commands:
+Run these commands to build and published a trimmed Release build:
 ```
 dotnet build -c Release -f net5.0-windows --no-incremental
 dotnet publish -c Release -r win7-x64 -f net5.0-windows --self-contained true -p:PublishTrimmed=true /bl
@@ -43,7 +41,7 @@ File name: 'System.Runtime.Handles, Version=4.0.0.0, Culture=neutral, PublicKeyT
 
 ## Success on dotnet publish without -p:PublishTrimmed
 
-Build and run commands:
+Run these commands to build and published a non-trimmed Release build:
 ```
 dotnet build -c Release -f net5.0-windows --no-incremental
 dotnet publish -c Release -r win7-x64 -f net5.0-windows --self-contained true /bl
