@@ -38,6 +38,34 @@ File name: 'System.Runtime.Handles, Version=4.0.0.0, Culture=neutral, PublicKeyT
 [net5trimerror] End
 ```
 
+When running the published exe:
+```
+bin\Release\net5.0-windows\win7-x64\publish\net5trimerror.exe
+```
+
+This produces the output:
+```
+bin\Release\net5.0-windows\win7-x64\publish\net5trimerror.exe
+[net5trimerror] Begin
+CimSession.Create
+System.TypeInitializationException: The type initializer for 'Microsoft.Management.Infrastructure.Native.ApplicationMethods' threw an exception.
+ ---> System.TypeLoadException: Could not load type 'System.Runtime.CompilerServices.CallConvCdecl' from assembly 'System.Runtime.CompilerServices.VisualC, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.
+   at malloc(UInt64 )
+   at MI_CLI_malloc_core(UInt64 length)
+   at Microsoft.Management.Infrastructure.Native.ApplicationMethods.InitializeCore(InstanceHandle& errorDetails, ApplicationHandle& applicationHandle)
+   at Microsoft.Management.Infrastructure.Native.ApplicationMethods..cctor()
+   --- End of inner exception stack trace ---
+   at Microsoft.Management.Infrastructure.Native.ApplicationMethods.Initialize(InstanceHandle& errorDetails, ApplicationHandle& applicationHandle)
+   at Microsoft.Management.Infrastructure.Internal.CimApplication.GetApplicationHandle()
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at System.Lazy`1.get_Value()
+   at Microsoft.Management.Infrastructure.Internal.CimApplication.get_Handle()
+   at Microsoft.Management.Infrastructure.CimSession.Create(String computerName, CimSessionOptions sessionOptions)
+   at net5trimerror.Helper.GetDedicatedGPUName() in C:\Users\Tesseract\Projects\net5trimerror\Helper.cs:line 16
+   ```
+
 
 ## Success on dotnet publish without -p:PublishTrimmed
 
