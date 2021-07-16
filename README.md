@@ -45,7 +45,6 @@ bin\Release\net5.0-windows\win7-x64\publish\net5trimerror.exe
 
 This produces the output:
 ```
-bin\Release\net5.0-windows\win7-x64\publish\net5trimerror.exe
 [net5trimerror] Begin
 CimSession.Create
 System.TypeInitializationException: The type initializer for 'Microsoft.Management.Infrastructure.Native.ApplicationMethods' threw an exception.
